@@ -18,3 +18,8 @@ module.exports.show_all=async()=>{
   const rooms= await Room.find({});
   return rooms;
 }
+//Find Room
+module.exports.search=async(room_number)=>{
+  const Data= await Room.find({Number:room_number})
+  return Data[0];
+  }

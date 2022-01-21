@@ -7,6 +7,12 @@ module.exports.Add=async(number,name,department)=>{
     .catch(err=>{return err})
     return Data;
 }
+//All courses
 module.exports.All_courses=async()=>{
 return await Course.find({});
+}
+//Find one
+module.exports.search=async(course_number)=>{
+const Data=await Course.find({Number:course_number})
+return Data[0];
 }

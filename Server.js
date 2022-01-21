@@ -7,9 +7,10 @@ require('dotenv').config()
 mongoo(process.env.db_url).then(()=>{
 const Room=require('./Routes/Room')
 const Course = require('./Routes/Course');
+const Exam=require('./Routes/Exam');
 app.use('/',Room);
 app.use('/',Course)
-
+app.use('/',Exam)
 
     
 
