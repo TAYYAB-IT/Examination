@@ -1,13 +1,14 @@
 const express = require('express');
+
 const app = express()
 app.use(express.json())
 const mongoo = require('./Services/DB_connection');
 require('dotenv').config()
 mongoo(process.env.db_url).then(()=>{
 const Room=require('./Routes/Room')
+const Course = require('./Routes/Course');
 app.use('/',Room);
-
-
+app.use('/',Course)
 
 
     
