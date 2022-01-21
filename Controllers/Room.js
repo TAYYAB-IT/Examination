@@ -8,5 +8,9 @@ res.json(Data)
 //show all rooms
 module.exports.rooms_list=async(req,res)=>{
 const Data=await Room.show_all();
-res.json(Data);
+if(Data){
+res.json(Data.length!=0);}
+else{
+    res.json({Message:"No Room Exist in Database!"})
+}
 }
