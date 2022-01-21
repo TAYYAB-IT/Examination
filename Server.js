@@ -4,7 +4,8 @@ app.use(express.json())
 const mongoo = require('./Services/DB_connection');
 require('dotenv').config()
 mongoo(process.env.db_url).then(()=>{
-
+const Room=require('./Routes/Room')
+app.use('/',Room);
 
 
 
