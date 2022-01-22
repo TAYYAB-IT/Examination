@@ -7,7 +7,7 @@ module.exports.add_section=async(req,res)=>{
 if(exam_data){
 const course_data=await Course.search(req.body.CourseNumber);
 if(course_data){
-   const Data=await Section.add(req.body.Number,req.body.ExamID,req.body.CourseNumber,req.body.Enrollment);
+   const Data=await Section.add(req.body.Number,exam_data._id,course_data._id,req.body.Enrollment);
 res.json(Data);
 }
 else{
