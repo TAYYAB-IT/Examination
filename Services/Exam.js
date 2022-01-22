@@ -12,8 +12,8 @@ module.exports.all_exams=async()=>{
 const Data=await Exam.find({}).populate('RoomNumber')
 return Data
 }
-//Search
+//Search one
 module.exports.search=async(exam_id)=>{
-const Data=await Exam.find({ID:exam_id});
+const Data=await Exam.find({ID:exam_id}).populate('RoomNumber');
 return Data[0];
 }
