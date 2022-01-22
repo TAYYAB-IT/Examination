@@ -16,3 +16,9 @@ module.exports.search=async(course_number)=>{
 const Data=await Course.find({Number:course_number})
 return Data[0];
 }
+
+//Delete one
+module.exports.delete=async(course_number)=>{
+ const Data=await Course.findOneAndDelete({Number:course_number})
+ return Data;
+}

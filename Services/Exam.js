@@ -13,7 +13,24 @@ const Data=await Exam.find({}).populate('RoomNumber')
 return Data
 }
 //Search one
-module.exports.search=async(exam_id)=>{
-const Data=await Exam.find({ID:exam_id}).populate('RoomNumber');
+module.exports.search=async(exam_id,time)=>{
+    var Data=[]
+if(exam_id){
+    Data=await Exam.find({ID:exam_id}).populate('RoomNumber')}
+else if(time){
+    Data=await Exam.find({Time:time}).populate('RoomNumber')}
 return Data[0];
+}
+
+
+//Delete one
+module.exports.delete=async(exam_id)=>{
+    const Data=await Exam.findOneAndDelete({ID:exam_id}).populate('RoomNumber')
+    return Data;
+}
+//Find By Room No
+module.exports.search_By_room_no=async(room_no)=>{
+    const Data=await Exam.find({}).populate('RoomNumber')
+   const Filter_Data=Data.filter((value)=>value.RoomNumber.Number==room_no)
+    return Filter_Data;
 }

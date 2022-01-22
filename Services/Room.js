@@ -23,3 +23,9 @@ module.exports.search=async(room_number)=>{
   const Data= await Room.find({Number:room_number})
   return Data[0];
   }
+
+  //Delete one
+  module.exports.delete=async(room_no)=>{
+    const Data=await Room.findOneAndDelete({Number:room_no});
+    return Data;
+  }

@@ -19,7 +19,7 @@ else{
 }
 }
 
-//Show Section
+//Show all Sections
 module.exports.all_sections=async(req,res)=>{
     const Data=await Section.show_all();
     if(Data.length!=0){
@@ -29,3 +29,17 @@ module.exports.all_sections=async(req,res)=>{
         res.json(Message="No Section Exist in Database!")
     }
 }
+
+//Delete a Section
+module.exports.delete=async(req,res)=>{
+    const Data= await Section.delete(req.body.Number);
+    if(Data){
+        res.json({Data,Status:"Deleted"})
+    }
+    else{
+        res.json(Message="NO Such Exam ID Exist!")
+    }
+}
+
+//Search Section By Course Number
+module.exports.search
